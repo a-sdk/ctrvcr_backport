@@ -209,7 +209,7 @@ void main() {
 	sum = vec3(
 #if BLUR_SIZE != -1
 		(left1[0] + left2[0] + center[0])/3,
-		center[1] * (1. - (BLOOM_SIZE_F / 4.)),
+		center[1] * (1.0 - (BLOOM_SIZE_F / 4.0)),
 		(right1[2] + right2[2] + center[2])/3);
 #else
 		center[0],
