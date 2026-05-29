@@ -1,3 +1,7 @@
+## 1.4.4
+### Fixes
+- Fixed compilation issue for older GLSL compilers. [#6](https://github.com/millennIumAMbiguity/ctrvcr/pull/6)
+
 ## 1.4.3
 ### Additions
 - Added dynamic fog.
