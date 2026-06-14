@@ -18,7 +18,7 @@ uniform float sunAngle;
 // 0-1 rain amount.
 uniform float rainStrength;
 
-uniform int renderStage;
+uniform ivec2 atlasSize;
 
 #if AIWS_SOURCE == 0 || AIWS_SOURCE == 3 || LIGHTMAP_DITERING != -1 || defined(DITTER_FOG) || defined(HAND_DYNAMIC_LIGHTING)
 uniform float frameTimeCounter;
@@ -163,8 +163,8 @@ void main()
     if (mcEntity.y > 0.5)
     #endif
     {
-        vec2 textureSize = vec2(textureSize(texture,0));
-        vec2 of = floor(coord0 * textureSize);
+        vec2 sizeAtlas = vec2(atlasSize);
+        vec2 of = floor(coord0 * sizeAtlas);
 
         #if AIWS_SOURCE == 0 // time
             vec2 source = vec2(frameTimeCounter, frameTimeCounter);
@@ -182,8 +182,8 @@ void main()
             float v = hash(of, sin(source.x + coord0.x*100));
             float v2 = hash(of, cos(source.y + coord0.y*100 - 1000));
         #elif AIWS_TYPE == 1
-            float v = hash(of, mod(source.x + coord0.x*100, 8192)) - 0.5f;
-            float v2 = hash(of, mod(source.y + coord0.y*100 - 1000, 8192)) - 0.5f;
+            float v = hash(of, mod(source.x + coord0.x*100, 8192)) - 0.5;
+            float v2 = hash(of, mod(source.y + coord0.y*100 - 1000, 8192)) - 0.5;
         #elif AIWS_TYPE == 2
             float v = hash(of, tan(source.x + coord0.x*100 - 1000 + sin(source.x + coord0.y*coord0.x*100)));
             float v2 = hash(of, tan(source.y + coord0.y*100 + sin(source.y + coord0.y*coord0.x*80 - 1000)));
@@ -194,11 +194,11 @@ void main()
             float v = hash(of, source.x);
             float v2 = hash(of, source.y);
         #elif AIWS_TYPE == 5
-            float v = Random_float_t(of, 1f + mod(floor(source.x * 16f), 512));
-            float v2 = Random_float_t(of, 1f + mod(floor(source.y * 16f), 512));
+            float v = Random_float_t(of, 1.0 + mod(floor(source.x * 16.0), 512));
+            float v2 = Random_float_t(of, 1.0 + mod(floor(source.y * 16.0), 512));
         #endif
 
-        c0 = offsetCoord(coord0, vec2(v, v2) * AIWS_INTENSITY_F, textureSize);
+        c0 = offsetCoord(coord0, vec2(v, v2) * AIWS_INTENSITY_F, sizeAtlas);
     }
     #if AIWS == 2
     else 

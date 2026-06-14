@@ -55,7 +55,7 @@ void main()
     normal = (mcEntity.x==1.0) ? vec3(0,1,0) : (gbufferModelViewInverse * vec4(normal,0)).xyz;
 
     //Calculate simple lighting. Thanks to @PepperCode1
-    float light = min(normal.x * normal.x * 0.6f + normal.y * normal.y * 0.25f * (3.0f + normal.y) + normal.z * normal.z * 0.8f, 1.0f);
+    float light = min(normal.x * normal.x * 0.6 + normal.y * normal.y * 0.25 * (3.0 + normal.y) + normal.z * normal.z * 0.8, 1.0);
 
     //Output color with lighting to fragment shader.
     color = vec4(gl_Color.rgb * light, gl_Color.a);
