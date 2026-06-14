@@ -1,3 +1,9 @@
+## 1.4.4-1.12.2-backport
+### Fixed (Backporting adjustments)
+- Resolved mass compilation crash `C0204: version directive must be first statement` across terrain, hand, and weather buffers.
+- Resolved dimension crash in Nether (`world-1`) and The End (`world1`) by injecting dummy uniforms for `shadowMap` and `shadowProjection`.
+- Fixed thick fog issue by rewriting the `Fog` function to hook directly into `gl_Fog.start`, `gl_Fog.density` and scaling `gl_FogFragCoord`.
+
 ## 1.4.4
 ### Fixes
 - Fixed compilation issue for older GLSL compilers. [#6](https://github.com/millennIumAMbiguity/ctrvcr/pull/6)
