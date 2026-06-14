@@ -12,6 +12,7 @@
 
 ## ⚠️ 1.12.2 Unofficial Backport
 This is an unofficial backport of the CTR VCR shader, modified specifically to run stably on **Minecraft 1.12.2** (OptiFine HD U G5 / GLSL 1.20). All core shader compilation errors, duplicate version directives, and dimension fog glitches have been fixed.
+
 The CTR VCR shader brings the nostalgic feel of old CRT monitors and VHS tapes to your Minecraft experience, adding subtle but impactful visual artifacts and distortions. Inspired by the retro charm of analog technology, this shader introduces static noise, light distortions, chromatic aberration, scan-lines, and more to give the game a vintage, glitchy aesthetic. While these effects evoke a sense of retro realism, they are finely tuned to ensure they don't overwhelm the visuals, making the shader perfect for regular gameplay. Enjoy the blend of modern gameplay with a retro-futuristic vibe that keeps the world immersive, stylish, and entirely playable.
 
 <div align="center"><img src="https://cdn.modrinth.com/data/cached_images/283d3546430b8889522d2950ce27dc0f8ba286d7.png" alt="fireplace"></div>
