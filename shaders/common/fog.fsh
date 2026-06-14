@@ -78,7 +78,7 @@ float Fog(float isEyeInWater, float time8_rf, float fog_l) {
     //    return FogNDF(isEyeInWater);
     //#endif
 
-    float fog_d = max(gl_Fog.density, 0.5 * FOG_MULT_F);
+    float fog_d = gl_Fog.density; //max(gl_Fog.density, 0.5 * FOG_MULT_F);
     #ifdef DISTANT_HORIZONS
         float f = dhFarPlane;
 
@@ -91,7 +91,7 @@ float Fog(float isEyeInWater, float time8_rf, float fog_l) {
         #endif
     #else
         float f = far;
-        float fog_start = gl_Fog.start/5 + 10 * FOG_MULT_F;
+        float fog_start = gl_Fog.start; //gl_Fog.start/5 + 10 * FOG_MULT_F;
     #endif
 
     float fog = 0.0;
